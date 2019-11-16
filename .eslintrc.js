@@ -27,7 +27,8 @@ module.exports = {
             "env",
             "errors"
         ]],
-        "eslint-plugin/test-case-shorthand-strings": "error"
+        "eslint-plugin/test-case-shorthand-strings": "error",
+        "no-console": 0
     },
     overrides: [
         {

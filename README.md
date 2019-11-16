@@ -28,7 +28,7 @@ Below is an example of README.
 
 ----
 
-# eslint-plugin-xxxx (template)
+# eslint-plugin-clean-architecture (template)
 
 <!--
 [![npm version](https://img.shields.io/npm/v/eslint-plugin-xxxx.svg)](https://www.npmjs.com/package/eslint-plugin-xxxx)

@@ -1,20 +1,26 @@
 {
-  "name": "eslint-plugin-xxxx",
-  "version": "1.0.0",
+  "name": "eslint-plugin-clean-architecture",
+  "version": "0.1.0",
   "description": "",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10"
   },
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "add-rule": "node scripts/add-rule",
-    "lint": "eslint lib scripts tests",
+    "lint": "eslint src scripts tests",
     "update": "node scripts/update",
     "pretest": "npm run -s lint",
-    "test": "nyc mocha \"tests/lib/**/*.js\" --reporter progress",
+    "test": "jest",
+    "test:long": "jest --config jest-longtest.config.js",
+    "test:watch": "jest --watchAll",
+    "test:long:watch": "jest --config jest-longtest.config.js --watchAll",
+    "test:anti-corruption": "jest --config jest-anti-corruption.config.js",
+    "test:anti-corruption:watch": "jest --config jest-anti-corruption.config.js --watchAll",
+
     "preversion": "npm test",
     "version": "npm run -s update",
     "postversion": "git push && git push --tags"
@@ -22,9 +28,15 @@
   "peerDependencies": {
     "eslint": ">=5.16.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/eslint": "^6.1.3",
+    "@types/jest": "^24.0.23",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "typescript": "^3.7.2"
+  },
   "devDependencies": {
-    "@types/node": "^12.0.6",
+    "@types/node": "^12.12.8",
     "eslint": "^5.16.0",
     "eslint-config-eslint": "^5.0.1",
     "eslint-plugin-eslint-plugin": "^2.1.0",
@@ -46,5 +58,18 @@
   "bugs": {
     "url": "https://github.com/???/eslint-plugin-xxxx/issues"
   },
-  "homepage": "https://github.com/???/eslint-plugin-xxxx#readme"
+  "homepage": "https://github.com/???/eslint-plugin-xxxx#readme",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "10"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  }
 }

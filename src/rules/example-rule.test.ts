@@ -1,7 +1,5 @@
-"use strict";
-
-const { RuleTester } = require("eslint");
-const rule = require("../../../lib/rules/example-rule");
+import { RuleTester} from 'eslint'
+import rule from './example-rule'
 
 new RuleTester().run("example-rule", rule, {
     valid: [
